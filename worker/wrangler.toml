@@ -1,0 +1,8 @@
+
+name = "ai-style-transfer"
+main = "index.js"
+compatibility_date = "2024-01-01"
+account_id = "bc34af2e3d4f7bf89df3620170103341"
+
+[vars]
+FAL_MODEL = "fal-ai/nano-banana-2/edit"

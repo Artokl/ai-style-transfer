@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Style Transfer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <h1 class="hero__title">AI Style <span>Transfer</span></h1>
+        <p class="hero__subtitle">
+          Upload a photo, pick a visual style card, and generate a polished AI
+          transformation in seconds.
+        </p>
+        <div class="hero__badges">
+          <span class="pill"><span>⚡️</span><span>Fast results</span></span>
+          <span class="pill"><span>🖼️</span><span>Visual style cards</span></span>
+          <span class="pill"><span>🚀</span><span>No signup</span></span>
+        </div>
+      </header>
+
+      <main class="app-shell">
+        <div class="app-shell__glow"></div>
+        <section class="app-card">
+          <div class="app-grid">
+            <section class="panel panel--left">
+              <div>
+                <div class="panel__header panel__header--top">
+                  <div>
+                    <h2 class="panel__title">Upload your image</h2>
+                    <p class="panel__text">Choose a photo to transform</p>
+                  </div>
+                  <button id="reset-top" type="button" class="btn btn--secondary hidden">
+                    <span class="btn__icon" data-icon="trash"></span>
+                    <span>Reset</span>
+                  </button>
+                </div>
+
+                <label id="upload-zone" class="upload-zone" for="file-input">
+                  <input id="file-input" type="file" accept="image/*" hidden />
+                  <div id="upload-empty" class="upload-empty">
+                    <div class="upload-empty__icon" data-icon="upload-large"></div>
+                    <p class="upload-empty__title">Click to choose a photo</p>
+                    <p class="upload-empty__text">JPG, PNG, WEBP — portrait works best</p>
+                  </div>
+                  <div id="upload-stage" class="stage hidden">
+                    <div id="upload-frame" class="stage__frame">
+                      <img id="upload-preview" class="stage__img" alt="Uploaded preview" />
+                    </div>
+                  </div>
+                </label>
+              </div>
+
+              <div class="styles-block">
+                <div class="panel__header panel__header--compact">
+                  <div>
+                    <h3 class="panel__title">Choose a style</h3>
+                  </div>
+                  <div class="styles-count"><span id="styles-count"></span> styles</div>
+                </div>
+                <div id="styles-grid" class="styles-grid"></div>
+              </div>
+            </section>
+
+            <section class="panel panel--right">
+              <div>
+                <div class="panel__header panel__header--top">
+                  <div>
+                    <h2 class="panel__title">Preview / Result</h2>
+                    <p class="panel__text">
+                      Selected style:
+                      <span id="selected-style-name" class="panel__accent"></span>
+                    </p>
+                  </div>
+                  <div id="status-badge" class="status-badge">Demo</div>
+                </div>
+
+                <div id="result-shell" class="result-shell demo-mode">
+                  <div id="loading-view" class="loading-view hidden">
+                    <div class="loading-view__pill">
+                      <span class="btn__icon" data-icon="sparkles"></span>
+                      <span id="loading-text">Generating...</span>
+                    </div>
+                    <p class="loading-view__text">Please wait a few seconds</p>
+                  </div>
+
+                  <div id="result-stage" class="stage">
+                    <div id="result-frame" class="stage__frame demo-fit">
+                      <img id="result-image" class="stage__img stage__img--contain" alt="Preview result" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="actions-grid">
+                  <button id="download-btn" type="button" class="btn btn--secondary" disabled>
+                    <span class="btn__icon" data-icon="download"></span>
+                    <span>Download</span>
+                  </button>
+                  <button id="copy-btn" type="button" class="btn btn--secondary" disabled>
+                    <span class="btn__icon" data-icon="copy"></span>
+                    <span>Copy image</span>
+                  </button>
+                  <button id="open-btn" type="button" class="btn btn--secondary" disabled>
+                    <span class="btn__icon" data-icon="open"></span>
+                    <span>Open</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="feature-grid" id="feature-grid"></div>
+            </section>
+
+            <section class="bottom-panel">
+              <div class="bottom-panel__inner">
+                <textarea
+                  id="extra-input"
+                  class="extra-input"
+                  placeholder="Extra instructions..."
+                ></textarea>
+
+                <div class="bottom-actions">
+                  <button id="generate-btn" type="button" class="btn btn--primary">
+                    <span class="btn__icon" data-icon="sparkles"></span>
+                    <span id="generate-label">Generate</span>
+                  </button>
+
+                  <button id="reset-bottom" type="button" class="btn btn--secondary">
+                    <span class="btn__icon" data-icon="trash"></span>
+                    <span>Reset</span>
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
